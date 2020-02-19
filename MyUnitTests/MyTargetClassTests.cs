@@ -1,14 +1,14 @@
 ﻿using UnitTestTargetProject;
-using Xunit;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 
 namespace MyUnitTests
 {
-    [TestFixture]
+    [TestClass]
 
     public class MyTargetClassTests
     {
-        [Test]
+        [TestMethod]
 
         public void VerifySummation()
         {
@@ -16,10 +16,10 @@ namespace MyUnitTests
             const int intsecondNumber = 10;
             var objTargetClass = new MyTargetClass();
             var intResult = objTargetClass.AddNumbers(intFirstNumber, intsecondNumber);
-            NUnit.Framework.Assert.AreEqual(15 + 10, intResult);
+            Assert.AreEqual(15 + 10, intResult);
         }
 
-        [Test]
+        [TestMethod]
 
         public void VerifySubtraction()
         {
@@ -27,10 +27,10 @@ namespace MyUnitTests
             const int intsecondNumber = 10;
             var objTargetClass = new MyTargetClass();
             var intResult = objTargetClass.SubractNumbers(intFirstNumber, intsecondNumber);
-            NUnit.Framework.Assert.AreEqual(15 - 10, intResult);
+            Assert.AreEqual(15 - 10, intResult);
         }
 
-        [Test]
+        [TestMethod]
 
         public void VerifyDivision()
         {
@@ -42,7 +42,7 @@ namespace MyUnitTests
             var intResult = objTargetClass.DivideNumbers(intFirstNumber, intsecondNumber);
 
             // ensure this is always a int.
-            NUnit.Framework.Assert.AreEqual((int)(15 / 10), intResult);
+            Assert.AreEqual((int)(15 / 10), intResult);
         }
     }
 }
