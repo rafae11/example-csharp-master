@@ -5,11 +5,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MyUnitTests
 {
     [TestClass]
-
     public class MyTargetClassTests
     {
         [TestMethod]
-
         public void VerifySummation()
         {
             const int intFirstNumber = 15;
@@ -20,7 +18,6 @@ namespace MyUnitTests
         }
 
         [TestMethod]
-
         public void VerifySubtraction()
         {
             const int intFirstNumber = 15;
@@ -31,7 +28,6 @@ namespace MyUnitTests
         }
 
         [TestMethod]
-
         public void VerifyDivision()
         {
             const int intFirstNumber = 15;
