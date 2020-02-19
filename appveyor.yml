@@ -5,6 +5,7 @@ cache:
   - packages -> **\packages.config
 before_build:
   - dotnet restore 
+  - rd /s /q packages
   - nuget restore -verbosity detailed CodecovProject.sln
   - choco install opencover.portable
   - choco install codecov
