@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/fmvdi88wdqm30r7o/branch/master?svg=true)](https://ci.appveyor.com/project/rafae11/example-csharp-master/branch/master)
+
 # Codecov C# Example
 
 | [https://codecov.io](https://codecov.io/) | [@codecov](https://twitter.com/codecov) | [hello@codecov.io](mailto:hello@codecov.io) |
