@@ -1,7 +1,6 @@
 ﻿using UnitTestTargetProject;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 namespace MyUnitTests
 {
     [TestClass]
@@ -36,7 +35,7 @@ namespace MyUnitTests
             
             // in this though there seems to be some data loss.
             var intResult = objTargetClass.DivideNumbers(intFirstNumber, intsecondNumber);
-
+            
             // ensure this is always a int.
             Assert.AreEqual((int)(15 / 10), intResult);
         }
