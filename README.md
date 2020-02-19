@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/fmvdi88wdqm30r7o/branch/master?svg=true)](https://ci.appveyor.com/project/rafae11/example-csharp-master/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/6k9hfertgc90lmmg/branch/master?svg=true)](https://ci.appveyor.com/project/rafae11/example-csharp-master/branch/master)
 
 # Codecov C# Example
 
