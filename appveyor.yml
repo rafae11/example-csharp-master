@@ -3,7 +3,7 @@ image: Visual Studio 2019
 platform: Any CPU
 before_build:
   - dotnet restore 
-  - nuget restore example-csharp-master
+  - nuget restore 
   - choco install opencover.portable
   - choco install codecov
 
