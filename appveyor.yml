@@ -6,7 +6,7 @@ cache:
 nuget:
   project_feed: true
 before_build:
-  - nuget config -set repositoryPath=.\packages
+  - nuget config -set repositoryPath=C:\projects\example-csharp-master\packages -configfile c:\my.config
   - nuget restore -verbosity detailed CodecovProject.sln
   - choco install opencover.portable
   - choco install codecov
