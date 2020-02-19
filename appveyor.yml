@@ -13,7 +13,7 @@ build:
   verbosity: detailed
  
 after_build:
-ls recurse
+  -ls recurse
 
 test_script:
 - OpenCover.Console.exe -register:user -target:"C:\projects\example-csharp-master\packages\Microsoft.TestPlatform.16.5.0\tools\net451\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" -targetargs:"MyUnitTests\bin\Debug\MyUnitTests.dll" -filter:"+[UnitTestTargetProject*]* -[MyUnitTests*]*" -output:".\MyProject_coverage.xml"
