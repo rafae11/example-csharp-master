@@ -1,9 +1,10 @@
 image: Visual Studio 2015
 
 before_build:
-- nuget restore example-csharp-master
-- choco install opencover.portable
-- choco install codecov
+  - dotnet restore 
+  - nuget restore example-csharp-master
+  - choco install opencover.portable
+  - choco install codecov
 
 build:
   project: CodecovProject.sln
