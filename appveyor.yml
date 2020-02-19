@@ -12,6 +12,9 @@ build:
   project: CodecovProject.sln
   verbosity: detailed
  
+after_build:
+ls recurse
+
 test_script:
 - OpenCover.Console.exe -register:user -target:"C:\projects\example-csharp-master\packages\Microsoft.TestPlatform.16.5.0\tools\net451\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" -targetargs:"MyUnitTests\bin\Debug\MyUnitTests.dll" -filter:"+[UnitTestTargetProject*]* -[MyUnitTests*]*" -output:".\MyProject_coverage.xml"
 - codecov -f "MyProject_coverage.xml"  -t beb94cc5-4595-4b5b-ab4f-93e8ea073b6d
