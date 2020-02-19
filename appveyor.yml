@@ -2,8 +2,8 @@ version: 1.0.{build}
 image: Visual Studio 2019
 platform: Any CPU
 before_build:
-  - dotnet restore example-csharp-master
-  - nuget restore CodecovProject.sln
+  - dotnet restore 
+  - nuget restore example-csharp-master
   - choco install opencover.portable
   - choco install codecov
 
