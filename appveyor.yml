@@ -1,9 +1,11 @@
 version: 1.0.{build}
 image: Visual Studio 2019
 platform: Any CPU
+cache:
+  - packages -> **\packages.config
 before_build:
   - dotnet restore 
-  - nuget restore 
+  - nuget restore -verbosity detailed CodecovProject.sln
   - choco install opencover.portable
   - choco install codecov
 
