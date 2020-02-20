@@ -15,7 +15,7 @@ build:
   verbosity: detailed
 
 after_build:
-  - ls -r > out.txt
+  - /log > out.txt
   - findstr "MyUnitTests" out.txt  
   
 test_script:
