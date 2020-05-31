@@ -32,22 +32,22 @@ build:
   
 for:
   -
-    matrix:
-    only:
-    - job_name: Tests A
+   matrix:
+      only:
+      job_name: Tests A
     test_script:
       - ps: write-host "for-matrix override test script A"
     
   -
     matrix:
-    only:
-    - job_name: Tests B
+      only:
+      job_name: Tests B
     test_script:
       - ps: write-host "for-matrix override test script B"
    
   -
     matrix:
-    only:
-    - job_name: Tests B
+      only:
+      job_name: Tests C
     test_script:
       - ps: write-host "for-matrix override test script C"
