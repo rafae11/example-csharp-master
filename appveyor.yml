@@ -7,15 +7,15 @@ environment:
   
   - job_name: Tests A
     job_group: Tests
-	job_depends_on: Build
-	
+    job_depends_on: Build
+    
   - job_name: Tests B
     job_group: Tests
-	job_depends_on: Build
+    job_depends_on: Build
   
   - job_name: Tests C
     job_group: Tests
-	job_depends_on: Build
+    job_depends_on: Build
     
 cache:
   - packages -> **\packages.config
