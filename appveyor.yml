@@ -1,14 +1,35 @@
-image: Visual Studio 2015
-
+version: 1.0.{build}
+image: Visual Studio 2019
+platform: Any CPU
+environment:
+  matrix:
+  - job_name: Build
+  
+  - job_name: Tests A
+    job_group: Tests
+	job_depends_on: Build
+	
+  - job_name: Tests B
+    job_group: Tests
+	job_depends_on: Build
+  
+  - job_name: Tests C
+    job_group: Tests
+	job_depends_on: Build
+    
+cache:
+  - packages -> **\packages.config
+nuget:
+  project_feed: true
 before_build:
-- nuget restore
-- choco install opencover.portable
-- choco install codecov
-
+  - nuget config -set repositoryPath=C:\projects\example-csharp-master\packages -configfile C:\projects\example-csharp-master\nuget.config
+  - nuget restore 
+  - choco install opencover.portable
+  - choco install codecov
 build:
   project: CodecovProject.sln
-  verbosity: minimal
-
+  verbosity: detailed
+  
 test_script:
-- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\MyUnitTests\bin\Debug\MyUnitTests.dll -noshadow" -filter:"+[UnitTestTargetProject*]* -[MyUnitTests*]*" -output:".\MyProject_coverage.xml"
-- codecov -f "MyProject_coverage.xml"  -t beb94cc5-4595-4b5b-ab4f-93e8ea073b6d
+  - OpenCover.Console.exe -register:user -target:"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" -targetargs:"MyUnitTests\bin\Debug\MyUnitTests.dll" -filter:"+[UnitTestTargetProject*]* -[MyUnitTests*]*" -output:"MyProject_coverage.xml"
+  - codecov -f "MyProject_coverage.xml"  -t beb94cc5-4595-4b5b-ab4f-93e8ea073b6d
