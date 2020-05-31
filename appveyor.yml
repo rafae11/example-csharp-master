@@ -45,7 +45,7 @@ for:
     test_script:
       - ps: write-host "for-matrix override test script B"
    
-   -
+  -
     matrix:
     only:
     - job_name: Tests B
