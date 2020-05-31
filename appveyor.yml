@@ -32,7 +32,7 @@ build:
   verbosity: detailed
 
 matrix:
-  - fast_finish: true
+  fast_finish: true
 
 for:
   -
