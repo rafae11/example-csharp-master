@@ -34,7 +34,6 @@ for:
       only:
         - configuration: Release
           job_name: Build
-    environment:
     platform: Any CPU # this setting is ignored
     before_build:
       - nuget config -set repositoryPath=C:\projects\example-csharp-master-p0csp\packages -configfile C:\projects\example-csharp-master-p0csp\nuget.config
@@ -50,7 +49,6 @@ for:
       only:
         - configuration: Release
           job_name: Tests A
-    environment:
     platform: Any CPU # this setting is ignored
     test_script:
       - ps: write-host "for-matrix override test script 1"
@@ -60,8 +58,6 @@ for:
       only:
         - configuration: Release
           job_name: Tests B
-    environment:
-      my_var1: overriden-value1
     platform: Any CPU # this setting is ignored
     test_script:
       - ps: write-host "for-matrix override test script 2"
@@ -71,8 +67,6 @@ for:
       only:
         - configuration: Release
           job_name: Tests C
-    environment:
-      my_var1: overriden-value1
     platform: Any CPU # this setting is ignored
     test_script:
       - ps: write-host "for-matrix override test script 3"
