@@ -22,14 +22,7 @@ cache:
   - packages -> **\packages.config
 nuget:
   project_feed: true
-before_build:
-  - nuget config -set repositoryPath=C:\projects\example-csharp-master-p0csp\packages -configfile C:\projects\example-csharp-master-p0csp\nuget.config
-  - nuget restore 
-  - choco install opencover.portable
-  - choco install codecov
-build:
-  project: CodecovProject.sln
-  verbosity: detailed
+
 test_script:
   - ps: write-host "Common Tests"
 matrix:
@@ -40,9 +33,24 @@ for:
     matrix:
       only:
         - configuration: Release
+          job_name: Build
+    environment:
+    platform: Any CPU # this setting is ignored
+    before_build:
+      - nuget config -set repositoryPath=C:\projects\example-csharp-master-p0csp\packages -configfile C:\projects\example-csharp-master-p0csp\nuget.config
+      - nuget restore 
+      - choco install opencover.portable
+      - choco install codecov
+    build:
+      project: CodecovProject.sln
+      verbosity: detailed
+
+  -
+    matrix:
+      only:
+        - configuration: Release
           job_name: Tests A
     environment:
-      my_var1: overriden-value1
     platform: Any CPU # this setting is ignored
     test_script:
       - ps: write-host "for-matrix override test script 1"
