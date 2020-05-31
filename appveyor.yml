@@ -1,6 +1,22 @@
 version: 1.0.{build}
 image: Visual Studio 2019
 platform: Any CPU
+environment:
+  matrix:
+  - job_name: Build
+  
+  - job_name: Tests A
+    job_group: Tests
+	job_depends_on: Build
+	
+  - job_name: Tests B
+    job_group: Tests
+	job_depends_on: Build
+  
+  - job_name: Tests C
+    job_group: Tests
+	job_depends_on: Build
+    
 cache:
   - packages -> **\packages.config
 nuget:

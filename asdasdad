@@ -1,0 +1,26 @@
+$Path = "C:\projects\example-csharp-master\MyUnitTests\bin\Debug\MyUnitTests.dll"
+
+$Path = OpenCover.Console.exe -register:user -target:"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" -targetargs:"MyUnitTests\bin\Debug\MyUnitTests.dll" -filter:"+[UnitTestTargetProject*]* -[MyUnitTests*]*" -output:"MyProject_coverage.xml"
+
+Write-Host "Test Started"
+
+$out = Invoke-Command -ScriptBlock {cmd /c $Path}
+$out | out-file -filepath C:\projects\example-csharp-master\out.txt
+
+Write-Host "Test Completed"
+
+findstr "Failed to discover tests from assembly" "C:\projects\example-csharp-master\out.txt"
+
+if( $LASTEXITCODE -eq 0)
+{
+    Write-Output "Match Found"
+    $LASTEXITCODE = 1
+    Write-Output $LASTEXITCODE
+    $host.SetShouldExit($LastExitCode)
+}
+ElseIf( $LASTEXITCODE -eq 1)
+{
+    Write-Output "No Match Found"
+    $LASTEXITCODE = 0
+    Write-Output $LASTEXITCODE
+}
