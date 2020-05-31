@@ -30,7 +30,8 @@ before_build:
 build:
   project: CodecovProject.sln
   verbosity: detailed
-
+test_script:
+  - ps: write-host "Common Tests"
 matrix:
   fast_finish: true
 
