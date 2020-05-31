@@ -57,7 +57,8 @@ for:
     platform: Any CPU # this setting is ignored
     test_script:
       - ps: write-host "for-matrix override test script 2"
-    -
+
+  -
     matrix:
       only:
         - configuration: Release
